@@ -124,8 +124,9 @@ header.stuck .nav a.link{color:var(--ink-soft);text-shadow:none}
 /* ---------- P3 気づけない ---------- */
 .aware{position:relative;color:#f3ead9;text-align:center;overflow:hidden;background:var(--black)}
 .aware .bg{position:absolute;inset:0;background-size:cover;background-position:center 30%;
-  opacity:.16;filter:grayscale(.9) brightness(.7)}
-.aware .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,13,10,.66),rgba(16,13,10,.8))}
+  opacity:.62;filter:grayscale(.35) brightness(.78)}
+.aware .veil{position:absolute;inset:0;background:
+  radial-gradient(120% 78% at 50% 52%,rgba(16,13,10,.82) 0%,rgba(16,13,10,.5) 55%,rgba(16,13,10,.34) 100%)}
 .aware .inner{position:relative;z-index:2}
 .aware .mega{color:#f3ead9}
 .aware .mega .g{color:var(--gold-soft)}
@@ -314,6 +315,7 @@ footer{background:#0b0908;color:#8c8173;padding:clamp(2.5rem,6vw,4rem) 0 2rem}
   .hero .btn-gold{padding:.8em 1.8em}
   .hero .veil{background:linear-gradient(180deg,rgba(16,13,10,.4) 0%,rgba(16,13,10,.06) 20%,rgba(16,13,10,.5) 55%,rgba(16,13,10,.96) 100%)}
 }
+@media(max-width:720px){.aware .bg{background-position:center 34%}.aware .veil{background:radial-gradient(150% 72% at 50% 50%,rgba(16,13,10,.86) 0%,rgba(16,13,10,.58) 60%,rgba(16,13,10,.4) 100%)}}
 /* ---- 日本語改行制御: 文節(<wbr>)単位でのみ折り返す ---- */
 h1,h2,h3,h4,.sub,.subline,.cap,.quote,.quote-by,.story-body,.scent,.tx,.note,.pdesc,.pjp,
 .cmp li,.cmp .foot,.ftile p,.scard p,.plan li,.step p,.faq-list summary,.faq-list .a,.hk-msg,.hk-cap,
@@ -365,6 +367,7 @@ h1,h2,h3,h4,.sub,.subline,.cap,.quote,.quote-by,.story-body,.scent,.tx,.note,.pd
     </div>
     <p class="subline rv">
       人は無意識に、<b>匂いでも相手を判断</b>している。<br>
+      話す前から<wbr>「なんとなく苦手」と<wbr>思われてしまう。<br>
       見た目を整えても、<wbr><b class="ng">これじゃモテません。</b>
     </p>
   </div>
