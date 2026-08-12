@@ -700,14 +700,19 @@ h1,h2,h3,h4,.sub,.subline,.cap,.quote,.quote-by,.story-body,.scent,.tx,.note,.pd
    ▼▼▼ ここだけ書き換えてください ▼▼▼
    各プランの Shopify 決済URL（商品ページ or チェックアウトURL）
    ========================================================= */
+const SHOP = "https://flavordesign.myshopify.com";
 const SHOP_LINKS = {
-  single:   "",   // 単品の Shopify URL
-  hubuki:   "",   // はぶきセットの Shopify URL
-  complete: "",   // コンプリートセットの Shopify URL
-  default:  ""    // どのプランでもない「購入する」ボタンの遷移先（例：Shopifyトップ）
+  single:   SHOP + "/products/the-flavor-design",     // 単品
+  hubuki:   SHOP + "/products/3-the-flavor-design",   // はぶきセット
+  complete: SHOP + "/products/4-the-flavor-design",   // コンプリートセット
+  default:  SHOP + "/collections/all"                 // プラン指定なしの「購入する」
 };
 const SNS_LINKS  = { instagram:"", youtube:"" };
-const INFO_PAGES = { tokusho:"", privacy:"", contact:"" };
+const INFO_PAGES = {
+  tokusho: SHOP + "/pages/tokushoho",
+  privacy: SHOP + "/pages/privacy-policy",
+  contact: SHOP + "/pages/contact-us"
+};
 /* ▲▲▲ 書き換えここまで ▲▲▲ */
 
 document.querySelectorAll('.js-buy').forEach(el=>{
