@@ -592,6 +592,7 @@ h1,h2,h3,h4,.sub,.subline,.cap,.quote,.quote-by,.story-body,.scent,.tx,.note,.pd
           <li>お好きな香りを選択</li>
         </ul>
         <a class="btn btn-out js-buy" data-plan="single" href="#">LINEで購入に進む</a>
+        <a class="btn btn-out js-base" data-plan="single" href="#">BASEで購入する</a>
       </div>
 
       <div class="plan feature rv">
@@ -607,6 +608,7 @@ h1,h2,h3,h4,.sub,.subline,.cap,.quote,.quote-by,.story-body,.scent,.tx,.note,.pd
           <li>ハブかれた本人の<wbr>“怒り”<wbr>メッセージ動画</li>
         </ul>
         <a class="btn btn-gold js-buy" data-plan="hubuki" href="#">LINEで購入に進む</a>
+        <a class="btn btn-out js-base" data-plan="hubuki" href="#">BASEで購入する</a>
       </div>
 
       <div class="plan rv">
@@ -621,6 +623,7 @@ h1,h2,h3,h4,.sub,.subline,.cap,.quote,.quote-by,.story-body,.scent,.tx,.note,.pd
           <li>雨来ズ。<wbr>オリジナルステッカー<wbr>2種を封入</li>
         </ul>
         <a class="btn btn-out js-buy" data-plan="complete" href="#">LINEで購入に進む</a>
+        <a class="btn btn-out js-base" data-plan="complete" href="#">BASEで購入する</a>
       </div>
 
     </div>
@@ -746,6 +749,7 @@ h1,h2,h3,h4,.sub,.subline,.cap,.quote,.quote-by,.story-body,.scent,.tx,.note,.pd
         <div class="foot-col">
           <b>SHOP</b>
           <a href="#pricing" class="js-buy">LINEで購入する</a>
+          <a href="#" class="js-base">BASEで購入する</a>
         </div>
         <div class="foot-col">
           <b>FOLLOW</b>
@@ -778,30 +782,36 @@ h1,h2,h3,h4,.sub,.subline,.cap,.quote,.quote-by,.story-body,.scent,.tx,.note,.pd
    ▼▼▼ ここだけ書き換えてください ▼▼▼
    各プランの Shopify 決済URL（商品ページ or チェックアウトURL）
    ========================================================= */
-const SHOP = "https://flavordesign.myshopify.com";
-const SHOP_LINKS = {
-  single:   SHOP + "/products/the-flavor-design",     // 単品
-  hubuki:   SHOP + "/products/3-the-flavor-design",   // はぶきセット
-  complete: SHOP + "/products/4-the-flavor-design",   // コンプリートセット
-  default:  SHOP + "/collections/all"                 // プラン指定なしの「購入する」
+const BASE_SHOP = "https://amekozgoods.base.shop";
+const BASE_LINKS = {
+  single:   BASE_SHOP + "/items/156750148",   // ファブリックスプレー 単品
+  hubuki:   BASE_SHOP + "/items/156750163",   // はぶきセット 3本
+  complete: BASE_SHOP + "/items/156750220",   // コンプリートセット 4本
+  default:  BASE_SHOP + "/items/all"          // プラン指定なし
 };
-const LINE_URL   = "https://lin.ee/ZpRVv03";   // 雨来ズ。公式LINE 友だち追加URL
+const LINE_URL   = "https://lin.ee/ZpRVv03";   // 雨来ズ。公式LINE 友だち追加URL（主導線）
 const SNS_LINKS  = { instagram:"https://www.instagram.com/amekoz.jp", youtube:"https://www.youtube.com/@amekoz" };
 const INFO_PAGES = {
-  tokusho: SHOP + "/pages/tokushoho",
-  privacy: SHOP + "/pages/privacy-policy",
-  contact: SHOP + "/pages/contact-us"
+  tokusho: BASE_SHOP + "/law",
+  privacy: BASE_SHOP + "/privacy",
+  contact: "mailto:amekoz.goods@gmail.com"
 };
 /* ▲▲▲ 書き換えここまで ▲▲▲ */
 
 document.querySelectorAll('.js-buy').forEach(el=>{
   const plan = el.getAttribute('data-plan');
-  const url  = LINE_URL || (plan ? (SHOP_LINKS[plan]||SHOP_LINKS.default) : SHOP_LINKS.default);
+  const url  = LINE_URL || (plan ? (BASE_LINKS[plan]||BASE_LINKS.default) : BASE_LINKS.default);
   if(url){
     el.setAttribute('href', url);
     el.setAttribute('target','_blank');
     el.setAttribute('rel','noopener');
   }
+});
+document.querySelectorAll('.js-base').forEach(el=>{
+  const plan = el.getAttribute('data-plan');
+  el.setAttribute('href', plan ? (BASE_LINKS[plan]||BASE_LINKS.default) : BASE_LINKS.default);
+  el.setAttribute('target','_blank');
+  el.setAttribute('rel','noopener');
 });
 document.querySelectorAll('[data-sns]').forEach(el=>{
   const u=SNS_LINKS[el.getAttribute('data-sns')]; if(u){el.href=u;}
